@@ -20,8 +20,14 @@ st.markdown("Extracts detailed notes from **ANY** video using **Smart Fallback**
 # --- SIDEBAR: SETTINGS ---
 with st.sidebar:
     st.header("⚙️ Settings")
-    api_key = st.text_input("Enter Groq API Key", type="password")
-    st.markdown("[Get a Free Groq Key Here](https://console.groq.com/keys)")
+
+    # Try to load key from Secrets (Back-end)
+    if "GROQ_API_KEY" in st.secrets:
+        st.success("✅ API Key loaded from secrets")
+        api_key = st.secrets["GROQ_API_KEY"]
+    else:
+        # If no secret found, ask the user (Fallback)
+        api_key = st.text_input("Enter Groq API Key", type="password")
 
     # Updated Model List (Using Latest Llama 3.3/3.1)
     model_option = st.selectbox(
