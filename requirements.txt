@@ -1,9 +1,12 @@
 streamlit
-youtube-transcript-api
 groq
+youtube-transcript-api
+yt-dlp
+webvtt-py
 langchain
 langchain-community
-langchain-core
-langchain-text-splitters
 langchain-huggingface
+langchain-text-splitters
+langchain-core
 faiss-cpu
+sentence-transformers
